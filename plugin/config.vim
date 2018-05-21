@@ -1,3 +1,4 @@
+let mapleader = ','
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set mouse=a
@@ -15,7 +16,7 @@ au BufReadPost *.ctp set syntax=php
 
 nnoremap <Leader>p :set paste<CR>
 
-" nnoremap <C-t> :enew<CR>
+nnoremap <C-t> :enew<CR>
 " nnoremap <C-n> :bnext<CR>
 " nnoremap <C-b> :bprev<CR>
 
