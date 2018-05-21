@@ -15,9 +15,9 @@ au BufReadPost *.ctp set syntax=php
 
 nnoremap <Leader>p :set paste<CR>
 
-nnoremap <C-t> :enew<CR>
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-b> :bprev<CR>
+" nnoremap <C-t> :enew<CR>
+" nnoremap <C-n> :bnext<CR>
+" nnoremap <C-b> :bprev<CR>
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
