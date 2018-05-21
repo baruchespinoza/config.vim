@@ -14,7 +14,6 @@ set list showmatch showmode shiftround ttimeout hidden showcmd relativenumber nu
 au BufReadPost *.ctp set syntax=php
 
 nnoremap <Leader>p :set paste<CR>
-nnoremap <Leader>o :set nopaste<CR>
 
 nnoremap <C-t> :enew<CR>
 " nnoremap <C-n> :bnext<CR>
