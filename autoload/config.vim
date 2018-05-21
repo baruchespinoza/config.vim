@@ -1,7 +1,9 @@
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 set mouse=a
 set ttimeoutlen=50
 set encoding=utf-8
-set clipboard=unnamed
+set clipboard=unnamedplus
 set wildmode=list:longest
 set fileformats=unix,dos,mac
 set listchars=tab:▒░,trail:☯
