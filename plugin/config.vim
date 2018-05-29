@@ -1,8 +1,5 @@
-" let mapleader = ','
-" let maplocalleader = ","
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-set termguicolors
+" set termguicolors
 set cursorline
 set mouse=a
 set ttimeoutlen=50
