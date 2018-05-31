@@ -1,7 +1,7 @@
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 " set cursorline
-set ttyfastt
+set ttyfast
 set lazyredraw
 set mouse=a
 set ttimeoutlen=50
