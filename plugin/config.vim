@@ -1,6 +1,8 @@
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
-set cursorline
+" set cursorline
+set ttyfastt
+set lazyredraw
 set mouse=a
 set ttimeoutlen=50
 set encoding=utf-8
