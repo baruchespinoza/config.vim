@@ -1,4 +1,5 @@
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set re = 1
 set termguicolors
 " set cursorline
 set ttyfast
