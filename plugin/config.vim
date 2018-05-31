@@ -2,6 +2,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 " set cursorline
 set ttyfast
+set relativenumber
+" set number
 set lazyredraw
 set mouse=a
 set ttimeoutlen=50
@@ -12,7 +14,7 @@ set fileformats=unix,dos,mac
 set listchars=tab:▒░,trail:☯
 set completeopt=menuone,longest,preview
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4
-set list showmatch showmode shiftround ttimeout hidden showcmd relativenumber number hlsearch smartcase nobackup nowritebackup noswapfile
+set list showmatch showmode shiftround ttimeout hidden showcmd hlsearch smartcase nobackup nowritebackup noswapfile
 
 nnoremap <Leader>p :set paste<CR>
 nnoremap <script> <silent> <unique> <Leader>a :BufExplorerHorizontalSplit<CR>
