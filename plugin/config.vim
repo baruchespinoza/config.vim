@@ -4,7 +4,7 @@ set termguicolors
 " set cursorline
 set ttyfast
 " set relativenumber
-" set number
+set number
 set lazyredraw
 set mouse=a
 set ttimeoutlen=50
