@@ -3,7 +3,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 " set cursorline
 set ttyfast
-" set relativenumber
+set relativenumber
 set number
 set lazyredraw
 set mouse=a
