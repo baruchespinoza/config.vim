@@ -21,3 +21,11 @@ nnoremap <Leader>p :set paste<CR>
 nnoremap <script> <silent> <unique> <Leader>a :BufExplorerHorizontalSplit<CR>
 
 au BufReadPost *.ctp set syntax=php
+
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif

@@ -1,0 +1,10 @@
+snippet vdd
+options head
+  var_dump(${0:TARGET}); die();
+
+snippet pub
+abbr public function () {}
+	public function ${2:#:FunctionName}(${3}) {
+		${4:TARGET}
+	}
+
