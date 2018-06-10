@@ -18,14 +18,18 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4
 set list showmatch showmode shiftround ttimeout hidden showcmd hlsearch smartcase nobackup nowritebackup noswapfile
 
 nnoremap <Leader>p :set paste<CR>
-nnoremap <script> <silent> <unique> <Leader>a :BufExplorerHorizontalSplit<CR>
 
 au BufReadPost *.ctp set syntax=php
 
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+:tnoremap <Esc> <C-\><C-n>
 
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+let g:airline_powerline_fonts = 1
+let g:bufExplorerSortBy='number'
+let g:bufExplorerSplitOutPathName=1
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerSplitBelow=1
+let g:deoplete#enable_at_startup = 1
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '⬝'
+let g:indentLine_char = '𝄀'
+
