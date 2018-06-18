@@ -33,3 +33,4 @@ let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '⬝'
 let g:indentLine_char = '𝄀'
 
+let g:ale_lint_on_text_changed = 'never'
