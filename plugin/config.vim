@@ -1,6 +1,7 @@
-colorscheme onedark
-let g:airline_theme='onedark'
-let g:onedark_termcolors=256
+" colorscheme onedark
+
+" let g:airline_theme='onedark'
+" let g:onedark_termcolors=256
 let g:onedark_terminal_italics=1
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
