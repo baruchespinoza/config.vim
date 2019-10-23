@@ -1,4 +1,4 @@
-" colorscheme onedark
+colorscheme onedark
 
 " let g:airline_theme='onedark'
 " let g:onedark_termcolors=256
