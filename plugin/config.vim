@@ -44,3 +44,12 @@ set incsearch
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
+
+:tnoremap <C-j> :bprevious<CR>
+:tnoremap <C-k> :bnext<CR>
+
+:inoremap <C-j> :bprevious<CR>
+:inoremap <C-k> :bnext<CR>
+
+:nnoremap <C-j> :bprevious<CR>
+:nnoremap <C-k> :bnext<CR>
