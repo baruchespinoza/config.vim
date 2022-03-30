@@ -10,7 +10,7 @@ set fileformats=unix,dos,mac
 set listchars=tab:▒░,trail:∞
 set backspace=indent,eol,start
 set completeopt=menuone,longest,preview
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 set list showmatch showmode shiftround ttimeout hidden showcmd hlsearch smartcase nobackup nowritebackup noswapfile termguicolors cursorline lazyredraw nowrap autoindent smarttab incsearch relativenumber number expandtab
 
 tnoremap <Esc> <C-\><C-n>
