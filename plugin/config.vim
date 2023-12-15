@@ -1,38 +1,23 @@
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set mouse=a
-set complete-=i
-set sidescroll=1
-set ttimeoutlen=50
-set encoding=utf-8
-set clipboard=unnamedplus
-set wildmode=list:longest
-set fileformats=unix,dos,mac
-set listchars=tab:▒░,trail:∞
-set backspace=indent,eol,start
-set completeopt=menuone,longest,preview
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4
-set list showmatch showmode shiftround ttimeout hidden showcmd hlsearch smartcase nobackup nowritebackup noswapfile termguicolors cursorline lazyredraw nowrap autoindent smarttab incsearch relativenumber number expandtab
-
-tnoremap <Esc> <C-\><C-n>
-
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
-
-:tnoremap <C-j> :bprevious<CR>
-:tnoremap <C-k> :bnext<CR>
-
-:inoremap <C-j> :bprevious<CR>
-:inoremap <C-k> :bnext<CR>
-
-:nnoremap <C-j> :bprevious<CR>
-:nnoremap <C-k> :bnext<CR>
-
 lua << EOF
 
 require("bufferline").setup{
+  options = {
     numbers = "buffer_id",
-    number_style = "superscript"
+    number_style = "superscript",
+    show_buffer_icons = false
+  }
+}
+
+require('lualine').setup{
+  sections = {
+    lualine_x = {
+      {
+        'filetype',
+        colored = false,
+      }
+    }
+  }
 }
 
 require('mason').setup()
@@ -40,14 +25,16 @@ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
     -- Replace these with whatever servers you want to install
+    -- 'standardrb',
+    -- 'solargraph',
     'tsserver',
     'quick_lint_js',
-    'intelephense',
     'html',
   }
 })
 
 local lspconfig = require('lspconfig')
+
 require('mason-lspconfig').setup_handlers({
   function(server_name)
     lspconfig[server_name].setup({
@@ -94,35 +81,24 @@ cmp.setup.filetype('gitcommit', {
   })
 })
 
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
+-- -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+-- cmp.setup.cmdline({ '/', '?' }, {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = {
+--     { name = 'buffer' }
+--   }
+-- })
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig')['tsserver'].setup { capabilities = capabilities }
 require('lspconfig')['quick_lint_js'].setup { capabilities = capabilities }
-require('lspconfig')['intelephense'].setup { capabilities = capabilities }
 require('lspconfig')['html'].setup { capabilities = capabilities }
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
@@ -146,13 +122,63 @@ end
 local lsp_flags = {
   debounce_text_changes = 150,
 }
-require('lspconfig')['pyright'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+
+-- require('lspconfig')['pyright'].setup{
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+-- }
+
 require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
 
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "ruby",
+--   group = vim.api.nvim_create_augroup("RubyLSP", { clear = true }), -- also this is not /needed/ but it's good practice 
+--   callback = function()
+--     vim.lsp.start {
+--       name = "standard",
+--       cmd = { os.getenv( "HOME" ) .. "/.rbenv/shims/standardrb", "--lsp" },
+--     }
+--   end,
+-- })
+
+-- require('lspconfig')['solargraph'].setup{}
+
 EOF
+
+
+
+
+set mouse=a
+set complete-=i
+set sidescroll=1
+set ttimeoutlen=50
+set encoding=utf-8
+set clipboard=unnamedplus
+set wildmode=list:longest
+set fileformats=unix,dos,mac
+set listchars=tab:▒░,trail:∞
+set backspace=indent,eol,start
+set completeopt=menuone,longest,preview
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2
+set list showmatch showmode shiftround ttimeout hidden showcmd hlsearch smartcase nobackup nowritebackup noswapfile termguicolors cursorline lazyredraw nowrap autoindent smarttab incsearch relativenumber number expandtab
+
+tnoremap <Esc> <C-\><C-n>
+
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
+
+:tnoremap <C-j> :bprevious<CR>
+:tnoremap <C-k> :bnext<CR>
+
+:inoremap <C-j> :bprevious<CR>
+:inoremap <C-k> :bnext<CR>
+
+:nnoremap <C-j> :bprevious<CR>
+:nnoremap <C-k> :bnext<CR>
+
+set tags+=.tags
+nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags<cr>
